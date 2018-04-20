@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wg.demo.pojo">
+    <resultMap type="Product" id="productBean">
+        <id column="pid" property="id" />
+        <result column="pname" property="name" />
+        <result column="price" property="price" />
+
+        <!-- 多对一的关系 -->
+        <!-- property: 指的是属性名称, javaType：指的是属性的类型 -->
+        <association property="category" javaType="Category">
+            <id column="cid" property="id"/>
+            <result column="cname" property="name"/>
+        </association>
+    </resultMap>
+
+    <select id="listProduct" resultMap="productBean">
+        select c.*, p.*, c.id 'cid', p.id 'pid', c.name 'cname', p.name 'pname'
+        from category_ c
+        left join product_ p on c.id = p.cid
+    </select>
+    <select id="getProduct" resultMap="productBean">
+        select c.*, p.*, c.id 'cid', p.id 'pid', c.name 'cname', p.name 'pname'
+        from category_ c
+            left join product_ p on c.id = p.cid
+        where p.id = #{id}
+    </select>
+    <select id="getProductAuto" parameterType="java.util.Map" resultType="Product">
+        select *
+        from product_ p
+        <if test="name!=null">
+            where name like concat('%',#{name},'%')
+        </if>
+    </select>
+    <select id="getProductAutoWhere" parameterType="java.util.Map" resultType="Product">
+        select *
+        from product_ p
+        <where>
+            <if test="name!=null">
+                and name like concat('%',#{name},'%')
+            </if>
+            <if test="price!=null and price!=0">
+                and price > #{price}
+            </if>
+        </where>
+    </select>
+    <update id="updateProductAutoSet" parameterType="Product">
+        update product_
+        <set>
+            <if test="name!=null">name= #{name},</if>
+            <if test="price!=null and price!=0">price= #{price},</if>
+        </set>
+        where id= #{id}
+    </update>
+    <select id="listAllProductOnly" resultType="Product">
+        select * from product_
+    </select>
+    <select id="listChooseProduct" resultType="Product">
+        select * from product_
+        <where>
+            <choose>
+                <when test="name!=null">
+                    and name like concat('%', #{name} ,'%')
+                </when>
+                <when test="price!=null and price!=0">
+                    and price>#{price}
+                </when>
+                <otherwise>
+                    and id>1
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+    <select id="listProductBind" resultType="Product">
+        <bind name="likename" value="'%' + name + '%'" />
+        select * from   product_  where name like #{likename}
+    </select>
+    <select id="listProductForeach" resultType="Product">
+        SELECT * FROM product_
+        WHERE id in
+        <foreach item="item" index="index" collection="list"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>
