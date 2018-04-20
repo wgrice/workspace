@@ -1,16 +1,22 @@
-package com.wg.demo.pojo;
+package com.wg.annotationdemo.pojo;
 
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Category implements Serializable {
+public class Category {
 
     private long id;
     private String name;
-
     private List<Product> products;
 
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 
     public long getId() {
         return id;
@@ -27,14 +33,6 @@ public class Category implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
     }
 
     @Override

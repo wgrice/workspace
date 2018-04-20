@@ -1,0 +1,20 @@
+15:54:53.013 DEBUG org.apache.ibatis.logging.LogFactory 135 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+15:54:53.295 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource 335 forceCloseAll - PooledDataSource forcefully closed/removed all connections.
+15:54:53.296 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource 335 forceCloseAll - PooledDataSource forcefully closed/removed all connections.
+15:54:53.296 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource 335 forceCloseAll - PooledDataSource forcefully closed/removed all connections.
+15:54:53.297 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource 335 forceCloseAll - PooledDataSource forcefully closed/removed all connections.
+15:54:53.531 DEBUG org.apache.ibatis.cache.decorators.LoggingCache 62 getObject - Cache Hit Ratio [com.wg.demo.pojo]: 0.0
+15:54:53.541 DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction 137 openConnection - Opening JDBC Connection
+15:54:54.099 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource 406 popConnection - Created connection 912747546.
+15:54:54.099 DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction 101 setDesiredAutoCommit - Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@36676c1a]
+15:54:54.128 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 159 debug - ==>  Preparing: select * from category_ where id= ? 
+15:54:54.184 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 159 debug - ==> Parameters: 22(Integer)
+15:54:54.258 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger 165 trace - <==    Columns: id, name
+15:54:54.259 TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger 165 trace - <==        Row: 22, Category 6
+15:54:54.261 DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 159 debug - <==      Total: 1
+15:54:54.263 DEBUG org.apache.ibatis.cache.decorators.LoggingCache 62 getObject - Cache Hit Ratio [com.wg.demo.pojo]: 0.0
+15:54:54.280 DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction 123 resetAutoCommit - Resetting autocommit to true on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@36676c1a]
+15:54:54.282 DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction 91 close - Closing JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@36676c1a]
+15:54:54.289 DEBUG org.apache.ibatis.datasource.pooled.PooledDataSource 363 pushConnection - Returned connection 912747546 to pool.
+15:54:54.307 DEBUG org.apache.ibatis.cache.decorators.LoggingCache 62 getObject - Cache Hit Ratio [com.wg.demo.pojo]: 0.3333333333333333
+15:54:54.308 DEBUG org.apache.ibatis.cache.decorators.LoggingCache 62 getObject - Cache Hit Ratio [com.wg.demo.pojo]: 0.5

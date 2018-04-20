@@ -1,10 +1,9 @@
 package com.wg.demo.pojo;
 
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Category implements Serializable {
+public class CategoryBak {
 
     private long id;
     private String name;

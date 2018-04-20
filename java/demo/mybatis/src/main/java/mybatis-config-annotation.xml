@@ -4,11 +4,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <settings>
-        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
         <setting name="cacheEnabled" value="true"/>
+        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
     </settings>
     <typeAliases>
-      <package name="com.wg.demo.pojo"/>
+      <package name="com.wg.annotationdemo.pojo"/>
+      <package name="com.wg.annotationdemo.mapper"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -22,10 +23,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/wg/demo/pojo/CategoryCache.xml"/>
-        <mapper resource="com/wg/demo/pojo/Product.xml"/>
-        <mapper resource="com/wg/demo/pojo/Order.xml"/>
-        <mapper resource="com/wg/demo/pojo/OrderItem.xml"/>
+        <mapper class="com.wg.annotationdemo.mapper.CategoryMapper"/>
+        <mapper class="com.wg.annotationdemo.mapper.CategoryPageMapper"/>
+        <mapper class="com.wg.annotationdemo.mapper.OrderMapper"/>
+        <mapper class="com.wg.annotationdemo.mapper.OrderItemMapper"/>
+        <mapper class="com.wg.annotationdemo.mapper.ProductMapper"/>
+        <mapper class="com.wg.annotationdemo.mapper.DynamicCategoryMapper"/>
     </mappers>
 
 </configuration>
